@@ -1,3 +1,0 @@
-# cpp-tutorial
-
-for beginners.
