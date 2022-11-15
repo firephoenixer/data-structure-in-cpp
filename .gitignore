@@ -1,5 +1,11 @@
-# Prerequisites
+# user ignore files
 .vs
+Debug
+CppProperties.json
+*.vcxproj
+
+
+# Prerequisites
 *.d
 
 # Compiled Object files
