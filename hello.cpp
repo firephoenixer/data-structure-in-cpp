@@ -4,7 +4,7 @@
 
 int main()
 {
-	std::cout << "Hello world" << std::endl;
+	std::cout << "Hello world, this for data structure!" << std::endl;
 	return 0;
 
 
