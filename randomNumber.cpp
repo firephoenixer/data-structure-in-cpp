@@ -12,7 +12,7 @@ int main() {
     std::uniform_real_distribution<double> dist(0, 1);
 
     for (int i=0; i<5; ++i)
-        std::cout << dist(mt) << "\n";
+        std::cout << dist(mt) << "\n";  // grnerate a random number
 }
 
 
