@@ -15,6 +15,8 @@ int main()
     myCompany.showMyDetails();
     myCompany.addFounders();
     myCompany.showMyDetails();
+    myCompany.showByName("Founder3");
+    myCompany.showByName("Founder6");
 
 
 

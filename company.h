@@ -21,6 +21,7 @@ public:
     void showMyDetails();      // Method/function declaration
     void addFounders();        // add 5 founders of this company
     void updateNumber();       // update the total number of employee 
+    void showByName(string aName);  // show a employee by name
 
 
 

@@ -56,6 +56,7 @@ void Company::addFounders()
     this->firstNode = this->pNode;  // allways point to the first node
     this->pNode->guy.name = "Founder1";
     this->pNode->guy.gender = "Male";
+    this->pNode->guy.age = 39;
     this->pNode->preNode = nullptr;
     // add second founder
     this->pNode->nextNode = new Node();
@@ -64,6 +65,7 @@ void Company::addFounders()
     this->pNode =  this->pNode->nextNode;  // point to the next one
     this->pNode->guy.name = "Founder2";
     this->pNode->guy.gender = "Female";
+    this->pNode->guy.age = 59;
     // add 3th founder
     this->pNode->nextNode = new Node();
 
@@ -71,6 +73,7 @@ void Company::addFounders()
     this->pNode =  this->pNode->nextNode;  // point to the next one
     this->pNode->guy.name = "Founder3";
     this->pNode->guy.gender = "Female";
+    this->pNode->guy.age = 29;
     // add 4th founder
     this->pNode->nextNode = new Node();
 
@@ -78,6 +81,7 @@ void Company::addFounders()
     this->pNode =  this->pNode->nextNode;  // point to the next one
     this->pNode->guy.name = "Founder4";
     this->pNode->guy.gender = "Male";
+    this->pNode->guy.age = 38;
     // add 5th founder
     this->pNode->nextNode = new Node();
 
@@ -85,6 +89,7 @@ void Company::addFounders()
     this->pNode =  this->pNode->nextNode;  // point to the next one
     this->pNode->guy.name = "Founder5";
     this->pNode->guy.gender = "Female";
+    this->pNode->guy.age = 31;
     // add 6th founder, none
     this->pNode->nextNode = nullptr;
 
@@ -105,6 +110,23 @@ void Company::updateNumber()
     return;
 } 
 
+// show a employee by name
+void Company::showByName(string aName)
+{
+    this->pNode = this->firstNode;  // init the pointer
+    while(pNode != nullptr)
+    {
+        if(pNode->guy.name == aName)
+        {
+            cout << aName <<" has been found:" << endl;
+            cout << "  gender:" << pNode->guy.gender << endl;
+            cout << "  age:" << pNode->guy.age << endl;
+            return;  // finish immediately
+        }
+        pNode = pNode->nextNode;
+    }
+    cout << aName <<" can't be found!" << endl;
+    return;
 
-
+}
 
