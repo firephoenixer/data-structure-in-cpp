@@ -5,6 +5,8 @@ Company::Company(string strName)
 {
     name = strName;
     numEmployee = 0;
+    pNode = nullptr;
+    firstNode = nullptr;
     cout << name << " is created!" << endl;
 }
 
@@ -12,6 +14,22 @@ Company::Company(string strName)
 // DeConstructor definition outside the class
 Company::~Company()
 {
+    // we should delete the heap memory when deconstruction
+    this->pNode = this->firstNode;  // init the pointer
+    while(pNode != nullptr)
+    {
+        if(pNode->nextNode != nullptr)
+        {
+            pNode = pNode->nextNode;
+            delete pNode->preNode;
+        }
+        else{
+            delete pNode;
+            pNode = nullptr;
+        }       
+    }
+
+
     cout << name << " is closed!" << endl;
 }
 
@@ -24,6 +42,68 @@ void Company::showMyDetails()
     return;
 
 }
+
+// add 5 founders of this company
+void Company::addFounders()
+{
+    // only when there is no employee, then add
+    if(numEmployee > 0)
+    {
+        cout <<"There allready has some employee, can't add founders any more!" << endl;
+        return;
+    }
+    this->pNode = new Node();
+    this->firstNode = this->pNode;  // allways point to the first node
+    this->pNode->guy.name = "Founder1";
+    this->pNode->guy.gender = "Male";
+    this->pNode->preNode = nullptr;
+    // add second founder
+    this->pNode->nextNode = new Node();
+
+    this->pNode->nextNode->preNode = this->pNode;  // set a node's prev pointer
+    this->pNode =  this->pNode->nextNode;  // point to the next one
+    this->pNode->guy.name = "Founder2";
+    this->pNode->guy.gender = "Female";
+    // add 3th founder
+    this->pNode->nextNode = new Node();
+
+    this->pNode->nextNode->preNode = this->pNode;  // set a node's prev pointer
+    this->pNode =  this->pNode->nextNode;  // point to the next one
+    this->pNode->guy.name = "Founder3";
+    this->pNode->guy.gender = "Female";
+    // add 4th founder
+    this->pNode->nextNode = new Node();
+
+    this->pNode->nextNode->preNode = this->pNode;  // set a node's prev pointer
+    this->pNode =  this->pNode->nextNode;  // point to the next one
+    this->pNode->guy.name = "Founder4";
+    this->pNode->guy.gender = "Male";
+    // add 5th founder
+    this->pNode->nextNode = new Node();
+
+    this->pNode->nextNode->preNode = this->pNode;  // set a node's prev pointer
+    this->pNode =  this->pNode->nextNode;  // point to the next one
+    this->pNode->guy.name = "Founder5";
+    this->pNode->guy.gender = "Female";
+    // add 6th founder, none
+    this->pNode->nextNode = nullptr;
+
+    this->updateNumber();
+}       
+
+// update the total number of employee 
+void Company::updateNumber()
+{
+    this->pNode = this->firstNode;  // init the pointer
+    unsigned int numbers = 0;
+    while(pNode != nullptr)
+    {
+        numbers++;
+        pNode = pNode->nextNode;
+    }
+    numEmployee = numbers;  // updated
+    return;
+} 
 
 
 
