@@ -12,6 +12,7 @@ int main()
 {
 	std::cout << "Member manage system is running!" << std::endl;
     Company myCompany("Galaxy Imaginery Group Company");
+    myCompany.showMyDetails();
 
 
 

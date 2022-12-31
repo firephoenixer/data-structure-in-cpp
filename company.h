@@ -10,10 +10,12 @@ class Company
 {
 public:
     string name;
+    unsigned int numEmployee;
 
 
     Company(string strName);   // Constructor declaration
     ~Company();                // DeConstructor declaration
+    void showMyDetails();      // Method/function declaration
 
 
 
